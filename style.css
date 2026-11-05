@@ -1,0 +1,462 @@
+:root {
+  --bg: #fff;
+  --fg: #1d4ed8;
+  --line: color-mix(in srgb, var(--fg) 22%, transparent);
+  --tint: color-mix(in srgb, var(--fg) 7%, transparent);
+}
+
+[data-theme="dark"] {
+  --bg: #1d4ed8;
+  --fg: #fff;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font:
+    17px/1.65 "Inter",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+  font-weight: 650;
+}
+
+
+p {
+  margin: 0 0 16px;
+}
+
+small,
+.eyebrow {
+  opacity: 0.65;
+  font-size: 14px;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--line);
+  transition: text-decoration-color 0.2s;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+
+.draft {
+  display: none !important;
+}
+
+
+main,
+footer,
+body > header > div {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 88px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+section > header {
+  max-width: 620px;
+  margin-bottom: 36px;
+}
+
+body > header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+body > header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+body > header > div > a {
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 11px 16px;
+  transition: 0.2s;
+}
+
+button {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+  border-radius: 999px;
+  padding: 11px 24px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+
+body > header button,
+.chip,
+button[type="reset"] {
+  background: transparent;
+  color: var(--fg);
+  border-color: var(--line);
+  padding: 8px 16px;
+}
+
+body > header button:hover,
+.chip:hover,
+.chip.is-active,
+button[type="reset"]:hover {
+  background: var(--fg);
+  color: var(--bg);
+  opacity: 1;
+}
+
+input,
+textarea {
+  width: 100%;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--fg);
+  outline: none;
+}
+
+input[type="search"] {
+  border-radius: 999px;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
+#form-success {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--tint);
+  font-weight: 600;
+}
+
+
+
+.hero {
+  margin-top: 32px;
+  padding: 96px 24px;
+  text-align: center;
+  background: var(--tint);
+  border-radius: 32px;
+}
+
+.hero > div {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+.hero > p {
+  display: none;
+}
+
+
+
+.tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.tools > div:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.search {
+  max-width: 260px;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+
+.project-card,
+form,
+#lab article,
+#no-results {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 24px;
+  background: var(--bg);
+}
+
+.project-card {
+  padding: 0;
+  overflow: hidden;
+  transition:
+    transform 0.25s,
+    border-color 0.25s;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--fg);
+}
+
+.visual {
+  padding: 24px;
+  min-height: 140px;
+  background: var(--tint);
+  position: relative;
+}
+
+.visual b {
+  font-size: 56px;
+  font-weight: 300;
+}
+
+.visual span {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--bg);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.body {
+  padding: 24px;
+}
+
+
+
+#reading,
+#contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+details {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#lab > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 28px;
+  padding-bottom: 88px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+
+.buttons-footer {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 11;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--fg);
+  color:chartreuse;
+  text-decoration: none;
+}
+
+
+.top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 11;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--fg);
+  color: var(--bg);
+  text-decoration: none;
+}
+
+
+
+@media (max-width: 800px) {
+  .projects,
+  #lab > div {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: 56px 0;
+  }
+
+  .projects,
+  #lab > div,
+  #reading,
+  #contact {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .tools,
+  footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero {
+    padding: 56px 20px;
+    border-radius: 24px;
+  }
+
+  main,
+  footer,
+  body > header > div {
+    padding: 0 18px;
+  }
+
+  .js body > header > div {
+    flex-wrap: wrap;
+    row-gap: 0;
+  }
+
+  .js #theme-toggle {
+    margin-left: auto;
+  }
+
+  .js .menu-toggle {
+    display: inline-block;
+  }
+
+  .js #site-nav {
+    display: none;
+    order: 3;
+    flex-basis: 100%;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 12px;
+  }
+
+  .js #site-nav.is-open {
+    display: flex;
+  }
+
+  #site-nav a {
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+    text-decoration: none;
+  }
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto;
+  }
+}
