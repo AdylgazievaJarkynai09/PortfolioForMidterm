@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jarkynai — Student Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .internal-note {
+      border-left: 3px solid #ff2600;
+      padding-left: 14px; 
+    }
+  </style>
+  
+  <script src="script.js" defer></script>
+</head>
+
+
+
+<body id="top">
+  <header>
+    <div>
+      <a href="#top">Jarkynai.</a>
+      <nav id="site-nav">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#lab">CSS Lab</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button type="button" id="theme-toggle" > 
+      </button>
+
+      <button 
+      type="button" id="menu-toggle" class="menu-toggle">☰ <span>Menu</span>
+      </button>
+    </div>
+  </header>
+
+
+
+  <main id="main">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">AN ARCHIVE OF LEARNING / ALA-TOO</p>
+        <h1>Quiet pages.<br>Careful code.</h1>
+        <p>A small archive of things I am learning to build, with patience and attention to every detail.</p>
+        <a href="#work">Explore my work</a>
+      </div>
+      <p>Notes from a student of the web.</p>
+    </section>
+
+
+    <section id="about">
+      <header>
+        <p class="eyebrow">01 / A LITTLE INTRODUCTION</p>
+        <h2>About me</h2>
+      </header>
+      <div>
+        <img src="photo.jpg" width="160" height="160" alt="Photo of Jarkynai">
+        <h3>Hello, I’m Jarkynai.</h3>
+        <p>I am a student exploring web programming and design. My first websites started with headings, paragraphs and a few links. Now I am learning how layout and small visual details change the way people use a page.</p>
+        <p>I enjoy readable typography, calm colors and simple navigation. This portfolio collects my practice projects and the CSS ideas behind them. The projects below are classroom examples.</p>
+        <p class="internal-note">My goal: understand every rule I write, then improve it through practice.</p>
+      </div>
+    </section>
+
+
+    <section id="work">
+      <header>
+        <p class="eyebrow">02 / SELECTED CLASSROOM PROJECTS</p>
+        <h2>Learning by making</h2>
+      </header>
+
+      <div class="tools">
+        <div role="group">
+          <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-filter="html-css" aria-pressed="false">HTML + CSS</button>
+          <button type="button" class="chip" data-filter="classroom" aria-pressed="false">Classroom</button>
+          <button type="button" class="chip" data-filter="experiments" aria-pressed="false">Experiments</button>
+        </div>
+        <div class="search">
+          <label for="project-search">Search projects</label>
+          <input id="project-search" type="search" placeholder="e.g. book, shadow…" autocomplete="off">
+        </div>
+      </div>
+
+      <p id="project-status" role="status"></p>
+
+      <div class="projects">
+        <article class="project-card" data-category="html-css">
+          <div class="visual"><b>01</b><span>HTML + CSS</span></div>
+          <div class="body">
+            <p class="eyebrow">PERSONAL WEBSITE</p>
+            <h3>My first portfolio</h3>
+            <p>A home for an introduction, skills and examples of my work.</p>
+            <a href="#about">View introduction</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="classroom">
+          <div class="visual"><b>02</b><span>CLASSROOM</span></div>
+          <div class="body">
+            <p class="eyebrow">READING JOURNAL</p>
+            <h3>Book Corner</h3>
+            <p>A small reading list with descriptions, links and a clear structure.</p>
+            <a href="#reading">Open reading list</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="experiments">
+          <div class="visual"><b>03</b><span>EXPERIMENTS</span></div>
+          <div class="body">
+            <p class="eyebrow">CSS EXPLORATION</p>
+            <h3>A collection of details</h3>
+            <p>Shadows, background images, display values and gentle movement.</p>
+            <a href="#lab">Visit the CSS lab</a>
+          </div>
+        </article>
+
+        <article class="project-card draft">
+          <div class="body">
+            <h3>Hidden draft</h3>
+            <p>This card is in HTML, but display: none removes its layout box.</p>
+          </div>
+        </article>
+      </div>
+
+      <p id="no-results" hidden>No projects match your search. Try another word or choose “All”.</p>
+    </section>
+    
+
+    <section id="lab">
+      <header>
+        <p class="eyebrow">03 / CSS LABORATORY</p>
+        <h2>See the rules at work</h2>
+        <p>Small examples you can inspect and change in style.css.</p>
+      </header>
+
+      <div>
+        <article>
+          <p class="eyebrow">DISPLAY</p><h3>Block and inline</h3>
+          <div>A div starts on a new line.</div>
+          <div>Another div, another line.</div>
+          <p><span>inline span</span> lives inside this sentence.</p>
+          <a href="#contact">inline-block link</a>
+          <small>Inline-block supports dimensions and padding.</small>
+        </article>
+
+        <article>
+          <p class="eyebrow">OVERFLOW: AUTO</p><h3>A scrollable note</h3>
+          <div tabindex="0" role="region" aria-label="Scrollable learning note">
+            <p>Good structure makes a website easier to read. Start with useful headings, descriptive links and paragraphs that communicate one idea at a time.</p>
+            <p>CSS controls the presentation. A clear visual hierarchy helps readers find their way through the page.</p>
+            <p>This note has a maximum height. When the text no longer fits, overflow: auto makes the content scrollable.</p>
+            <p>Try changing max-height in style.css. You can scroll with a mouse, touch or keyboard when this region has focus.</p>
+          </div>
+        </article>
+
+        <article>
+          <p class="eyebrow">BACKGROUND-REPEAT</p><h3>A repeating pattern</h3>
+          <div role="img" aria-label="Repeating dot pattern"></div>
+          <small>Try repeat-x, repeat-y or no-repeat.</small>
+        </article>
+
+        <article>
+          <p class="eyebrow">BACKGROUND-SIZE</p><h3>Cover and contain</h3>
+          <div>
+            <div><div></div><small>cover: fills the area, may crop</small></div>
+            <div><div></div><small>contain: shows the full image</small></div>
+          </div>
+        </article>
+
+        <article>
+          <p class="eyebrow">ALPHA AND OPACITY</p><h3>Two kinds of transparency</h3>
+          <div>Alpha color: the text stays opaque.</div>
+          <div>opacity: 0.55 fades this whole box.</div>
+        </article>
+
+        <article>
+          <p class="eyebrow">POSITION AND Z-INDEX</p><h3>Overlapping layers</h3>
+          <div>
+            <div>Layer 1</div>
+            <div>Layer 2</div>
+          </div>
+          <small>Swap the z-index values to change the order.</small>
+        </article>
+      </div>
+
+      <details>
+        <summary>Teacher demo: the hidden card</summary>
+        <p>Find <code>.draft</code> in style.css and temporarily change <code>display: none</code> to <code>display: block</code>. The fourth card returns to the project grid.</p>
+      </details>
+    </section>
+
+
+  </main>
+  <footer>
+    <p>Jarkynai’s portfolio · HTML &amp; CSS classroom project</p>
+    <a href="#top">Back to the beginning</a>
+  </footer>
+
+  <a class="top" href="#top" aria-label="Back to top">↑ <span>Top</span></a>
+</body>
+</html>
