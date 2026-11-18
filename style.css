@@ -368,16 +368,41 @@ footer {
 }
 
 
-.top {
+/* Scroll-to-top button: hidden until the page is scrolled */
+.scroll-top {
   position: fixed;
   right: 20px;
   bottom: 20px;
   z-index: 11;
-  padding: 10px 16px;
-  border-radius: 999px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   background: var(--fg);
   color: var(--bg);
-  text-decoration: none;
+  font-size: 22px;
+  line-height: 1;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s ease;
+}
+
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top.show:hover {
+  transform: translateY(-3px);
 }
 
 
