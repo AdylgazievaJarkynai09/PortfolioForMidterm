@@ -129,6 +129,73 @@ function initMobileMenu() {
 
 
 
+// Smooth scroll for anchor links (#about, #work, #top ...)
+// Accounts for the sticky header and respects prefers-reduced-motion.
+function initSmoothScroll() {
+  const header = document.querySelector('body > header');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  document.addEventListener('click', function (e) {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+
+    const id = link.getAttribute('href').slice(1);
+    const target = id ? document.getElementById(id) : null;
+    if (!target) return;
+
+    e.preventDefault();
+
+    const offset = header ? header.offsetHeight : 0;
+    const top = id === 'top'
+      ? 0
+      : target.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.scrollTo({
+      top: top,
+      behavior: reduce.matches ? 'auto' : 'smooth'
+    });
+
+    history.pushState(null, '', '#' + id);
+
+    if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+  });
+}
+
+
+
+
+
+// Scroll-to-top button: appears after SHOW_AFTER px, scrolls up smoothly on click.
+function initScrollTop() {
+  const btn = document.getElementById('scrollTopBtn');
+  if (!btn) return;
+
+  const SHOW_AFTER = 300;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function toggleButton() {
+    btn.classList.toggle('show', window.scrollY > SHOW_AFTER);
+  }
+
+  window.addEventListener('scroll', toggleButton, { passive: true });
+
+  btn.addEventListener('click', function () {
+    window.scrollTo({
+      top: 0,
+      behavior: reduce.matches ? 'auto' : 'smooth'
+    });
+  });
+
+  toggleButton();
+}
+
+
+
+
+
 initTheme();
 initProjectFilter();
 initMobileMenu();
+initSmoothScroll();
+initScrollTop();
